@@ -84,7 +84,7 @@ class CDTests(unittest.TestCase):
         self.assertFalse(exists(full_path), "temporary directory not deleted")
 
     # To test the Bonus part of this exercise, comment out the following line
-    @unittest.expectedFailure
+    # @unittest.expectedFailure
     def test_has_current_and_previous_attributes(self):
         directory = mkdtemp()
         original = os.getcwd()
