@@ -17,11 +17,17 @@ class cd():
             self.temp_directory = True
 
     def __enter__(self):
+        return self.enter()
+
+    def __exit__(self, exc_type, exc_val, exc_tb):
+        return self.exit()
+
+    def enter(self):
         self.previous = os.getcwd()
         os.chdir(self.current)
         return self
 
-    def __exit__(self, exc_type, exc_val, exc_tb):
+    def exit(self):
         os.chdir(self.previous)
         if self.temp_directory:
             shutil.rmtree(self.current)

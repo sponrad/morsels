@@ -95,7 +95,7 @@ class CDTests(unittest.TestCase):
         self.assertEqual(abspath(directory), abspath(str(dirs.current)))
 
     # To test the Bonus part of this exercise, comment out the following line
-    @unittest.expectedFailure
+    # @unittest.expectedFailure
     def test_enter_and_exit_methods(self):
         directory = mkdtemp()
         new_original = mkdtemp()
