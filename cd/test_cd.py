@@ -67,7 +67,7 @@ class CDTests(unittest.TestCase):
         self.assertEqual(abspath(os.getcwd()), abspath(new_original))
 
     # To test the Bonus part of this exercise, comment out the following line
-    @unittest.expectedFailure
+    # @unittest.expectedFailure
     def test_no_argument_given(self):
         original = os.getcwd()
         dirs = cd()
