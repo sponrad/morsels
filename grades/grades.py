@@ -1,5 +1,4 @@
 import math
-from decimal import Decimal
 
 
 # https://stackoverflow.com/questions/10093783/rounding-error-in-python-with-non-odd-number/10093820#10093820
@@ -35,21 +34,22 @@ def percent_to_grade(percent, *, suffix=False, round=False):
     return 'F'
 
 
+GPAS = {
+    'A+': 4.33,
+    'A': 4.00,
+    'A-': 3.67,
+    'B+': 3.33,
+    'B': 3.00,
+    'B-': 2.67,
+    'C+': 2.33,
+    'C': 2.00,
+    'C-': 1.67,
+    'D+': 1.33,
+    'D': 1.00,
+    'D-': 0.67,
+    'F': 0.00,
+}
+
+
 def calculate_gpa(grades):
-    gpas = {
-        'A+': Decimal('4.33'),
-        'A': Decimal('4.00'),
-        'A-': Decimal('3.67'),
-        'B+': Decimal('3.33'),
-        'B': Decimal('3.00'),
-        'B-': Decimal('2.67'),
-        'C+': Decimal('2.33'),
-        'C': Decimal('2.00'),
-        'C-': Decimal('1.67'),
-        'D+': Decimal('1.33'),
-        'D': Decimal('1.00'),
-        'D-': Decimal('0.67'),
-        'F': Decimal('0.00'),
-    }
-    grade_gpas = [gpas[grade] for grade in grades]
-    return float(sum(grade_gpas) / len(grade_gpas))
+    return sum(GPAS[grade] for grade in grades) / len(grades)
